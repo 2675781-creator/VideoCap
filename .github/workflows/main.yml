@@ -1,0 +1,37 @@
+name: Video CI-CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récpération du code
+        uses: actions/checkout@v4
+
+      - name: Configuraiton de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Installation des dépendances
+        run: |
+          python -m pip install --upgrade pip
+          # On installe les bibliothèques si le fichier existe
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Vérificaiton Santé
+        run: |
+          # Test rapide pour voir si les libs critiques sont bien là
+          python -c "import torch; from ultralytics import YOLO; print('Environnement VideoCap prêt !')"
+
+
+
+
+        
+      

@@ -1,0 +1,17 @@
+{
+    "model_name": "YOLOv11s_VideoCap_Video",
+    "version": "1.1",
+    "classes": {
+        "0": "cycle",
+        "1": "heavy_vehicle",
+        "2": "human",
+        "3": "vehicle"
+    },
+    "imgsz": 800,
+    "metrics": {
+        "mAP50": 0.004598027512701932,
+        "Recall": 0.014093959731543624,
+        "Precision": 0.007393247602252896
+    },
+    "date_export": "2026-03-31"
+}
