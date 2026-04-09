@@ -10,7 +10,7 @@ a) Contexte urbain : Téléchargement d'un carrefour dense au format .jpg. Le sy
 b) Scénario de sécurité : Image de validation montrant masqué par un camion est soumise. Le modèle détecte le piéton malgré l'occlusion partielle.
 
 
-erreur fréquentes :
+erreurs fréquentes :
 1. Téléversement d'une image dans un autre format que (jpg, jpeg, png). Solution : Convertir l'image en format permit par l'application.
 2. Téléversement d'une image corrompue. Solution : Téléchargez à nouveau l'image originale et réessayez.
 3. Aucun objet détecté. Solution : S'assurez que l'image est bien éclairée ou augmentez la résolution.
