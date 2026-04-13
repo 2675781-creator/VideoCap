@@ -1,1 +1,1 @@
-## VideoCap
+## VideoCap - Détection d'obstacles routiers
