@@ -5,7 +5,7 @@ VideoCap est une solution IA conçu pour améliorer la sécurité routière en d
 ## Aperçu du projet
 Le projet répond au défi de l'inattention au volant. L'objectif est de fournir une détection fiable, même pour les usagers vulnérables souvent négligés par les modèles standards.
 
-**Le message clé :**La sécurité ne dépend pas seulement de la puissance du modèle, mais de la représentativité des données.
+**Le message clé :** La sécurité ne dépend pas seulement de la puissance du modèle, mais de la représentativité des données.
 
 ## Stratégie Data-Centric
 Pour résoudre le déséquilibre sévère du dataset initial, nous avons mis en oeuvre un pipeline de curation massif : 
@@ -26,9 +26,9 @@ Pour résoudre le déséquilibre sévère du dataset initial, nous avons mis en 
 - GPU NVIDIA (recommandé pour l'inférence rapide)
 
 ### Lancement via Docker
-Bash :
+Bash :"
 **Cloner le dépôt**
-"git clone https://github.com/2675781-creator/VideoCap.git
+git clone https://github.com/2675781-creator/VideoCap.git
 cd VideoCap
 
 **Construire et lancer l'application Streamlit**
