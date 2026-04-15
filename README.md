@@ -22,15 +22,24 @@ Pour résoudre le déséquilibre sévère du dataset initial, nous avons mis en 
 ## Installation et Utilisation
 
 ### Prérequis
-- Docker & Docker Compose
+- Docker & Docker Compose (optionnel - pour le mode industriel)
+- Python 3.10+
 - GPU NVIDIA (recommandé pour l'inférence rapide)
 
-### Lancement via Docker
+### Lancement Local
+**Option 1 : Lancement Local**
 Bash :"
-**Cloner le dépôt**
+**1. Cloner le dépôt**
 git clone https://github.com/2675781-creator/VideoCap.git
 cd VideoCap
 
+**2. Installer les dépendances**
+pip install -r requirements.txt
+
+**3. Lancer l'interface Streamlit**
+streamlit run app.py
+
+**Option 2 : Lancement via Docker**
 **Construire et lancer l'application Streamlit**
 docker-compose up --build"
 
@@ -44,5 +53,5 @@ Le modèle vise les seuils critiques suivants pour une application insdustrielle
 
 ## Auteurs
 - Daniel Bourcier Blake
-- Stephan Lo-Man
+- Stephan Phan-Lo Man
 - Elhadji Abdoulaye Diagne
