@@ -1,17 +1,17 @@
 {
-    "model_name": "YOLOv11s_VideoCap_Video",
-    "version": "1.1",
+    "model_name": "YOLOv11m_VideoCap_Video",
+    "version": "1.3",
     "classes": {
         "0": "cycle",
         "1": "heavy_vehicle",
         "2": "human",
         "3": "vehicle"
     },
-    "imgsz": 800,
+    "imgsz": 640,
     "metrics": {
-        "mAP50": 0.004598027512701932,
-        "Recall": 0.014093959731543624,
-        "Precision": 0.007393247602252896
+        "mAP50": 0.0028678249460803757,
+        "Recall": 0.027013422818791946,
+        "Precision": 0.25481012441957307
     },
-    "date_export": "2026-03-31"
+    "date_export": "2026-04-16"
 }

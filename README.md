@@ -10,9 +10,9 @@ Le projet répond au défi de l'inattention au volant. L'objectif est de fournir
 ## Stratégie Data-Centric
 Pour résoudre le déséquilibre sévère du dataset initial, nous avons mis en oeuvre un pipeline de curation massif : 
 
-- **Curation sélective** : Passage de 200 images à 8311 images synchronisées.
-- **Oversampling** : Multiplication par 5 des classes rares (humains, cycles).
-- **Augmentations** : Utilisation de techniques de **Mosaïque** et **Mixup** pour renforcer la robustesse spatiale.
+- **Curation sélective** : Extension du dataset de 206 images originales à 8311 images.
+- **Oversampling Sélectif** : Multiplication par 5 des classes rares (humains, cycles).
+- **Audit et Labels** : Nettoyage automatisé des annotations pour garantir la conformité au standard YOLO.
 
 ## Architecture Technique
 - **Modèle**: YOLO11m (Medium) pour un équilibre optimal précision/vitesse.
@@ -30,7 +30,7 @@ Pour résoudre le déséquilibre sévère du dataset initial, nous avons mis en 
 **Option 1 : Lancement Local**
 Bash :"
 **1. Cloner le dépôt**
-git clone https://github.com/2675781-creator/VideoCap.git
+git clone [https://github.com/2675781-creator/VideoCap.git](https://github.com/2675781-creator/VideoCap.git)
 cd VideoCap
 
 **2. Installer les dépendances**
