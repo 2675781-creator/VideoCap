@@ -311,7 +311,7 @@ with st.sidebar:
     st.markdown("### ⚙️ Paramètres")
     st.markdown("<br>", unsafe_allow_html=True)
 
-    conf_threshold = st.slider("Seuil de confiance", 0.0, 1.0, 0.25, 0.01,
+    conf_threshold = st.slider("Seuil de confiance", 0.0, 1.0, 0.15, 0.01,
                                 help="Seuil minimal pour afficher une détection")
     img_size = st.selectbox("Résolution d'inférence", [640, 800, 1024], index=1,
                              help="Taille d'image pour l'inférence YOLO")
