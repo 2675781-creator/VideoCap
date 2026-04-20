@@ -14,9 +14,12 @@ b) Scénario de sécurité : Image de validation montrant masqué par un camion 
 
 
 erreurs fréquentes :
-1. Téléversement d'une image dans un autre format que (jpg, jpeg, png). Solution : Convertir le fichier en format permit par l'application avant de la soumettre.
-2. Téléversement d'une image corrompue. Si l'image ne s'Affiche pas, le fichier est peut-être endommagé. Solution : Téléchargez à nouveau l'image originale et réessayez.
-3. Aucun objet détecté. Solution : S'assurez que l'image est suffisamment lumineuse ou utilisez une image de meilleure résolution.
+1. Téléversement d'une image dans un autre format que (jpg, jpeg, png). 
+Solution : Convertir le fichier en format permit par l'application avant de la soumettre.
+2. Téléversement d'une image corrompue. Si l'image ne s'affiche pas, le fichier est peut-être endommagé. 
+Solution : Téléchargez à nouveau l'image originale et réessayez.
+3. Aucun objet détecté. 
+Solution : S'assurez que l'image est suffisamment lumineuse ou utilisez une image de meilleure résolution.
 
 
 Limites : 
