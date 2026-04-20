@@ -9,6 +9,29 @@ import os
 import tempfile
 import time
 
+# Fonction de prétraitement
+
+def apply_clahe(image_np):
+    """Améliore le contraste local pour les scènes sombres ou à faible contraste."""
+    # Conversion PIL -> OpenCV BGR
+    img_bgr = cv2.cvtColor(np.array(image_np), cv2.COLOR_RGB2BGR)
+
+    # Passage en espace LAB pour traiter la luminosité séparément
+    lab = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2LAB)
+    l, a, b = cv2.split(lab)
+
+    # Application du CLAHE sur le canal L (Lunimosité)
+    clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8,8))
+    cl = clahe.apply(l)
+
+    # Recomposition
+    limg = cv2.merge((cl,a,b))
+    final_bgr = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
+
+    # Retour en RGB pour Streamlit/PIL
+    return cv2.cvtColor(final_bgr, cv2.COLOR_BGR2RGB)
+
+
 # ─────────────────────────────────────────────
 # PAGE CONFIG
 # ─────────────────────────────────────────────
@@ -313,6 +336,12 @@ with st.sidebar:
 
     conf_threshold = st.slider("Seuil de confiance", 0.0, 1.0, 0.15, 0.01,
                                 help="Seuil minimal pour afficher une détection")
+    
+    st.markdown("---")
+    st.markdown("### Amélioration Image")
+    use_clahe = st.checkbox("Optimisation Contraste (CLAHE)", value=False,
+                            help="Utile pour les piétons dans l'ombre ou par mauvais temps.")
+    
     img_size = st.selectbox("Résolution d'inférence", [640, 800, 1024], index=1,
                              help="Taille d'image pour l'inférence YOLO")
 
@@ -394,6 +423,16 @@ if mode_key == "image":
     else:
         image = Image.open(uploaded_file)
 
+        # --- LOGIQUE DE PRÉTRAITEMENT ---
+        if use_clahe:
+            with st.spinner("Optimisation du contraste..."):
+                image_to_predict = apply_clahe(image)
+                label_source = "// Image traitée (CLAHE)"
+        else:
+            image_to_predict = image
+            label_source = "// Image originale"
+        #-----------------------------------------------------
+
         st.markdown(f"""
         <div class="status-bar">
             <div class="status-chip active">◉ Modèle — {model_name}</div>
@@ -403,11 +442,11 @@ if mode_key == "image":
 
         col1, col2 = st.columns(2, gap="large")
         with col1:
-            st.markdown('<div class="panel-label">// Image originale</div>', unsafe_allow_html=True)
-            st.image(image, use_container_width=True)
+            st.markdown(f'<div class="panel-label">{label_source}</div>', unsafe_allow_html=True)
+            st.image(image_to_predict, use_container_width=True)
 
         with st.spinner("🔍 Analyse en cours..."):
-            results = model.predict(image, conf=conf_threshold, imgsz=img_size, iou=0.7, augment=True)
+            results = model.predict(image_to_predict, conf=conf_threshold, imgsz=img_size, iou=0.7, augment=True)
             res_rgb = cv2.cvtColor(results[0].plot(), cv2.COLOR_BGR2RGB)
 
         with col2:
