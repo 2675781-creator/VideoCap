@@ -266,7 +266,7 @@ def get_config():
 
 @st.cache_resource
 def load_model():
-    return YOLO("models/best_model_v11m.pt")
+    return YOLO("models/best_model_v11m_v2.pt")
 
 config     = get_config()
 model      = load_model()
